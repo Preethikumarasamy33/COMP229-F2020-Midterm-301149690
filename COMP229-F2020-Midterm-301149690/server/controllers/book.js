@@ -51,8 +51,9 @@ module.exports.processAddPage = (req, res, next) => {
 Add your code here to display EDIT
 */
 module.exports.displayEditPage = (req, res, next) => {
-    res.render('book/add', {title: 'Add Book'})
-    let id= req.params.id;
+  let id= req.params.id;
+
+
 
 Book.findById(id, (err, bookToEdit) =>{
     if(err){
@@ -62,9 +63,9 @@ Book.findById(id, (err, bookToEdit) =>{
     else
     {
         //show the edit
-        res.render('book/edit', { title: 'Edit Book'}, bookToEdit)
+        res.render('book/edit', { title:"Edit",BookToEdit: bookToEdit})
     }
-    });          
+    });        
 }
 
 
